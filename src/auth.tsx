@@ -53,7 +53,13 @@ export const authOptions: AuthOptions = {
 
       if (user.id) session.user.id = user.id as string;
       const res = await fetch(
-        'https://venture-match-backend.vercel.app/user/getData/' + user.id
+        'https://venture-match-backend.vercel.app/user/getData/' + user.id,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
       );
 
       const result = await res.json();
