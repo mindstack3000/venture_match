@@ -1,9 +1,9 @@
-"use client";
-import React, { ChangeEvent, useState } from "react";
-import { UploadCloud, ChevronDown } from "lucide-react";
+'use client';
+import React, { ChangeEvent, useState } from 'react';
+import { UploadCloud, ChevronDown } from 'lucide-react';
 
 const ImageUploader: React.FC = () => {
-  const [base64Image, setBase64Image] = useState<string>("");
+  const [base64Image, setBase64Image] = useState<string>('');
 
   const handleFileInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
