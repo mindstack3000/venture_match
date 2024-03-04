@@ -56,7 +56,7 @@ export async function register({
 }) {
   console.log('registering');
   // console.log(name)
-  const res = await fetch(' http://localhost:8080/User/register', {
+  const res = await fetch(' https://venture-match-backend.vercel.app/User/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
