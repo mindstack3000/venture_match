@@ -1,4 +1,4 @@
-//FeedBack
+// FeedBack
 "use client";
 
 import { useState } from "react";
@@ -41,48 +41,55 @@ export default function Feedback() {
   };
 
   return (
-    <><div className="bg-slate-500 rounded-lg ">
-        <form onSubmit={handleSubmit} className="resize-y align-text-top py-4 mt-4 border-t flex flex-col gap-6">
-            <div className="resize-y">
-                <label htmlFor="fullname">Full Name</label>
-                <input
-                    onChange={(e) => setFullname(e.target.value)}
-                    value={fullname}
-                    type="text"
-                    id="fullname"
-                    placeholder="John Doe"
-                    className="rounded-sm"
-                />
-            </div>
-
-            <div>
-            <label htmlFor="email">Email</label>
+    <>
+      <div className="bg-slate-500 rounded-lg">
+        <form
+          onSubmit={handleSubmit}
+          className="md:py-2 mt-0 border-t md:flex md:flex-col flex-1 flex-row gap-6 px-4"
+        >
+          <div className=" px-5 flex justify-between">
+            <label htmlFor="fullname">Full Name: </label>
             <input
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                type="text"
-                id="email"
-                placeholder="john@gmail.com"
+              onChange={(e) => setFullname(e.target.value)}
+              value={fullname}
+              type="text"
+              id="fullname"
+              placeholder="John Doe"
+              className="rounded-sm p-2 border"
             />
-            </div>
+          </div>
 
-            <div>
-            <label htmlFor=" flex message">Your Message</label>
+          <div className="md:py-1 py-5 px-5 flex justify-between">
+            <label htmlFor="email">Email: </label>
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              type="text"
+              id="email"
+              placeholder="john@gmail.com"
+              className="rounded-sm p-2 border"
+            />
+          </div>
+
+          <div className=" px-5 flex justify-between">
+            <label htmlFor="message">Your Message: </label>
             <textarea
-                onChange={(e) => setMessage(e.target.value)}
-                value={message}
-                className="h-32"
-                id="message"
-                placeholder="Type your message here..."
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
+              className="h-32 rounded-sm p-2 border"
+              id="message"
+              placeholder="Type your message here..."
             ></textarea>
-            </div>
+          </div>
 
-            <button className="bg-green-700 p-3 text-white font-bold hover:" type="submit">
+          <button
+            className="bg-green-700 p-3 text-white font-bold hover:bg-green-800"
+            type="submit"
+          >
             Send
-            </button>
-      </form>
-    </div>
-      
+          </button>
+        </form>
+      </div>
     </>
   );
 }
