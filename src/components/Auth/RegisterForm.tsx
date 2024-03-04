@@ -1,13 +1,13 @@
-"use client";
-import React from "react";
-import * as actions from "@/action";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+'use client';
+import React from 'react';
+import * as actions from '@/action';
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { Button } from "@/components/ui/button";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { Button } from '@/components/ui/button';
 import {
   Form,
   FormControl,
@@ -16,63 +16,71 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
 
 function RegisterForm() {
   const formSchema = z.object({
     name: z.string().min(3, {
-      message: "Name must be at least 3 characters",
+      message: 'Name must be at least 3 characters',
     }),
     email: z.string().email({
-      message: "Please enter the email ",
+      message: 'Please enter the email ',
     }),
     dob: z.string({
-      required_error: "Please enter your date of birth",
+      required_error: 'Please enter your date of birth',
     }),
     phoneNo: z.string().length(10, {
-      message: "Phone number must be 10 digits",
+      message: 'Phone number must be 10 digits',
     }),
     password: z
       .string()
       .min(8, {
-        message: "Password must be at least 8 characters",
+        message: 'Password must be at least 8 characters',
       })
       .max(20, {
-        message: "Password must be at most 20 characters",
+        message: 'Password must be at most 20 characters',
       }),
     gender: z.string().min(1, {
-      message: "Please select Gender",
+      message: 'Please select Gender',
     }),
   });
 
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      dob: "",
-      phoneNo: "",
-      password: "",
-      gender: "",
+      name: '',
+      email: '',
+      dob: '',
+      phoneNo: '',
+      password: '',
+      gender: '',
     },
   });
 
-
   return (
-    <div className="items-center w-screen h-screen">
-      <div className="flex flex-row justify-center items-center bg-slate-300 gap-5 ">
+    <div className="">
+      <h3 className="text-center text-5xl font-semibold">Create an Account</h3>
+
+      <p className="text-center my-5">
+        Enter your details to create an account
+      </p>
+      <div className="flex flex-row justify-center items-center w-full  gap-5 ">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit((e) => actions.register({
-            name: e.name,
-            email: e.email,
-            dob: e.dob,
-            phone_no: e.phoneNo,
-            password: e.password,
-            gender: e.gender,
-            profile_img: "",
-            highest_edu: ""
-          }))}>
+          <form
+            onSubmit={form.handleSubmit((e) =>
+              actions.register({
+                name: e.name,
+                email: e.email,
+                dob: e.dob,
+                phone_no: e.phoneNo,
+                password: e.password,
+                gender: e.gender,
+                profile_img: '',
+                highest_edu: '',
+              })
+            )}
+            className="w-[70%]">
             <FormField
               control={form.control}
               name="name"
@@ -156,8 +164,7 @@ function RegisterForm() {
                     <RadioGroup
                       onValueChange={field.onChange}
                       defaultValue={field.value}
-                      className="flex flex-col space-y-1"
-                    >
+                      className="flex flex-col space-y-1">
                       <FormItem className="flex items-center space-x-3 space-y-0">
                         <FormControl>
                           <RadioGroupItem value="male" />
@@ -182,7 +189,7 @@ function RegisterForm() {
                 </FormItem>
               )}
             />
-            <Button className=" bg-black text-white" type="submit">
+            <Button className="mt-5 bg-black text-white" type="submit">
               Create Account
             </Button>
           </form>

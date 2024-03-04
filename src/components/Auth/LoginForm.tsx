@@ -53,13 +53,15 @@ const LoginForm = () => {
         <div className="formWrapper items-center justify-center flex h-screen px-1.5 ">
           <div className="left"></div>
           <div className="right">
-            <h3 className="text-center text-2xl font-semibold">Welcome Back</h3>
+            <h3 className="text-center text-5xl font-semibold">Welcome Back</h3>
 
-            <p className="text-center">
+            <p className="text-center mb-5">
               Enter your email & password to access your Account
             </p>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-10">
                 <FormField
                   control={form.control}
                   name="email"
@@ -98,6 +100,11 @@ const LoginForm = () => {
                 </div>
               </form>
             </Form>
+
+            <p className="text-center">
+              Dont have an account?{' '}
+              <Link href="/auth/register">Create Account</Link>
+            </p>
           </div>
         </div>
       </div>
