@@ -1,4 +1,4 @@
-import { signIn } from 'next-auth/react';
+import { signIn, signOut } from 'next-auth/react';
 
 export async function loginWithGoogle() {
   const res = await signIn('google', {
@@ -33,6 +33,10 @@ export async function loginWithCredentials(email: string, password: string) {
   return {
     user: res?.ok!,
   };
+}
+
+export function logOut() {
+  signOut({ callbackUrl: '/', redirect: true });
 }
 
 export async function register({

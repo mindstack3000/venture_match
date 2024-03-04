@@ -1,13 +1,9 @@
-import LoginForm from '@/components/Auth/LoginForm';
-import Footer from '@/components/Common/Footer';
-import RegisterForm from '@/components/Auth/RegisterForm';
+import HomePage from '@/pages/HomePage';
 
 export default function Home() {
   return (
     <main>
-      <RegisterForm />
-      <LoginForm />
-      <Footer />
+      <HomePage />
     </main>
   );
 }
