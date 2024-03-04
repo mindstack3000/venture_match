@@ -91,11 +91,13 @@ router.post("/register/:id", async (req, res) => {
     await newEnterpreneur.save(); // Save the newEnterpreneur instance
 
     if(newEnterpreneur){
-      res.status(200).json({ message: "Company registered successfully" });
+      res.status(201).json({ message: "Company registered successfully", company : newCompany, isregistered : true });
+    }else{
+      res.status(400).json({ message: "Company registration failed",isregistered : false });
     }
 
     // You can send a response here if needed
-    res.status(200).json({ message: "Company registered successfully" });
+    res.status(201).json({ message: "Company registered successfully" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal Server Error" });

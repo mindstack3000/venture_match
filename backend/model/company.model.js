@@ -32,7 +32,7 @@ const CompanySchema = new mongoose.Schema({
     type: String,
   },
   head_office_address: {
-    type: String,
+    type: [String],
     required: true,
   },
   valuation: {
