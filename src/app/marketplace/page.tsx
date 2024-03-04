@@ -26,7 +26,7 @@ function MarketPage() {
         <p className="text-xl cursor-pointer">Filters</p>
       </div>
 
-      {Data.map(
+       {Data.map(
         (
           {
             company_name,
