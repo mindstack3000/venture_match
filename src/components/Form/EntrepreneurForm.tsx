@@ -47,7 +47,7 @@ function EntrepreneurForm() {
       de_ratio: 0,
       capital: 0,
       licensing: '',
-      supplyChain: [],
+      supply_chain: [],
       patent: [],
       trademark: [],
       royalty: 0,
@@ -372,7 +372,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        supplyChain: e.target.value.split(','),
+                        supply_chain: e.target.value.split(','),
                       })
                     }
                   />

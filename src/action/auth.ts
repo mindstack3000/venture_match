@@ -92,6 +92,26 @@ export async function register({
   }
 }
 
-export async function setEntrepreneurData() {}
+export async function setEntrepreneurData(data: EntrepreneurFormType) {
+  const res = await fetch(
+    'https://venture-match-backend.vercel.app/entrepreneur',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }
+  );
+
+  const result = await res.json();
+  if (res.status == 201) {
+    return result;
+  } else {
+    return {
+      error: result.message,
+    };
+  }
+}
 
 export async function setInvestor() {}

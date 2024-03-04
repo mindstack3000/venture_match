@@ -9,7 +9,7 @@ type EntrepreneurFormType = {
     name: string;
     equity: number;
   }[];
-  founded_on : string;
+  founded_on: string;
   parent_org: string;
   website: string;
   head_office_address: {
@@ -30,7 +30,7 @@ type EntrepreneurFormType = {
   de_ratio: number;
   capital: number;
   licensing: string;
-  supplyChain: string[];
+  supply_chain: string[];
   patent: string[];
   trademark: string[];
   royalty: number;
