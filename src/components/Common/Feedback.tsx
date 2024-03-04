@@ -41,48 +41,48 @@ export default function Feedback() {
   };
 
   return (
-    <>
-      <form
-        onSubmit={handleSubmit}
-        className="py-4 mt-4 border-t flex flex-col gap-5"
-      >
-        <div>
-          <label htmlFor="fullname">Full Name</label>
-          <input
-            onChange={(e) => setFullname(e.target.value)}
-            value={fullname}
-            type="text"
-            id="fullname"
-            placeholder="John Doe"
-          />
-        </div>
+    <><div className="bg-slate-500 rounded-lg ">
+        <form onSubmit={handleSubmit} className="resize-y align-text-top py-4 mt-4 border-t flex flex-col gap-6">
+            <div className="resize-y">
+                <label htmlFor="fullname">Full Name</label>
+                <input
+                    onChange={(e) => setFullname(e.target.value)}
+                    value={fullname}
+                    type="text"
+                    id="fullname"
+                    placeholder="John Doe"
+                    className="rounded-sm"
+                />
+            </div>
 
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            type="text"
-            id="email"
-            placeholder="john@gmail.com"
-          />
-        </div>
+            <div>
+            <label htmlFor="email">Email</label>
+            <input
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                type="text"
+                id="email"
+                placeholder="john@gmail.com"
+            />
+            </div>
 
-        <div>
-          <label htmlFor="message">Your Message</label>
-          <textarea
-            onChange={(e) => setMessage(e.target.value)}
-            value={message}
-            className="h-32"
-            id="message"
-            placeholder="Type your message here..."
-          ></textarea>
-        </div>
+            <div>
+            <label htmlFor=" flex message">Your Message</label>
+            <textarea
+                onChange={(e) => setMessage(e.target.value)}
+                value={message}
+                className="h-32"
+                id="message"
+                placeholder="Type your message here..."
+            ></textarea>
+            </div>
 
-        <button className="bg-green-700 p-3 text-white font-bold" type="submit">
-          Send
-        </button>
+            <button className="bg-green-700 p-3 text-white font-bold hover:" type="submit">
+            Send
+            </button>
       </form>
+    </div>
+      
     </>
   );
 }
