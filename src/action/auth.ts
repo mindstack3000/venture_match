@@ -96,8 +96,9 @@ export async function register({
 export async function setEntrepreneurData(data: EntrepreneurFormType,id: string) {
   console.log(id , "id+",data);
   const res = await fetch(
+    'https://venture-match-backend.vercel.app/enterpreneur/register/' + id,
     // 'https://venture-match-backend.vercel.app/entrepreneur',
-    'http://localhost:5500/enterpreneur/register/' + id,
+    // 'http://localhost:5500/enterpreneur/register/' + id,
     {
       method: 'POST',
       headers: {

@@ -54,6 +54,7 @@ router.post("/register/:id", async (req, res) => {
     );
     const partnerIds = newPartners.map((partner) => partner._id);
 
+    type = "Entreperneur";
     const newCompany = new Company({
       company_name,
       business_idea,
@@ -79,7 +80,7 @@ router.post("/register/:id", async (req, res) => {
       royalty,
       profit,
       return_per,
-      type : "Entreperneur",
+      type ,
       image,
     });
 
@@ -104,12 +105,18 @@ router.post("/register/:id", async (req, res) => {
   }
 });
 
-// /* 
-//   !GET /entrepreneur/rank/
-// */
+/* 
+  !GET /enterpreneur/rank/
+*/
 
-// router.post("/rank", async (req, res) => {
-
-// })
+router.get("/rank", async (req, res) => {
+  try{
+    const getCompany = await Company.find({ type : "Entreperneur"}).exec();
+    console.log(getCompany);
+  }catch(err){
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+})
 
 module.exports = router;
