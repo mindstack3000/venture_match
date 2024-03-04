@@ -24,6 +24,8 @@ function Navbar({}: Props) {
   const { data: session } = useSession();
   const path = usePathname() ?? '/';
 
+  console.log(session);
+
   return (
     <header className="fixed top-0 left-0 z-50 flex items-center justify-between px-5 w-full bg-white">
       <div className="w-1/3 h-full">
@@ -93,7 +95,13 @@ function Navbar({}: Props) {
         ) : (
           <>
             <div className="gap-1 hidden md:flex">
-              <Button variant="link" size="lg" className="text-lg">
+              <Button
+                variant="link"
+                size="lg"
+                className="text-lg"
+                onClick={() =>
+                  action.loginWithCredentials('help@tagzfoods.com', 'random@1')
+                }>
                 Login
               </Button>
               <Button size="lg" className="text-lg">

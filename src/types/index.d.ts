@@ -9,7 +9,7 @@ type EntrepreneurFormType = {
     name: string;
     equity: number;
   }[];
-  founded_on : string;
+  founded_on: string;
   parent_org: string;
   website: string;
   head_office_address: {
@@ -38,4 +38,12 @@ type EntrepreneurFormType = {
   return_per: number;
   type: string;
   image: string;
+};
+type InvestorFormType = {
+  capital:number;
+  individual?:boolean;
+  experience?:number;
+  description:string;
+  occupation?:string;
+  company?: string;
 };
