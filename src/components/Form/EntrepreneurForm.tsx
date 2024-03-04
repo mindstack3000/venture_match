@@ -68,7 +68,7 @@ function EntrepreneurForm() {
   return (
     <div className="items-center w-screen ">
       <div className="flex flex-row justify-center items-center bg-slate-300 gap-5 ">
-        <form className="w-1/2">
+        <form className="w-1/2" onSubmit={(e)=>console.log(e)}>
           <Swiper
             pagination={{ type: "progressbar", dynamicBullets: true }}
             navigation={true}

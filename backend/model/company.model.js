@@ -25,7 +25,7 @@ const CompanySchema = new mongoose.Schema({
     type: String,
   },
   partner_id: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: [mongoose.Schema.Types.ObjectId], // [Partner._id, Partner._id, Partner._id, ...
     ref: "Partner",
   },
   website: {
@@ -58,12 +58,12 @@ const CompanySchema = new mongoose.Schema({
   de_ratio: {
     type: Number,
   },
-  capital_employed: {
+  capital: {
     type: Number,
     required: true,
   },
   licensing: {
-    type: Boolean,
+    type: String,
   },
   supply_chain: {
     type: [String],
@@ -81,12 +81,15 @@ const CompanySchema = new mongoose.Schema({
     type : Number,
     required : true,
   },
-  return : {
+  return_per : {
     type : Number,
   },
   type : {
     type : String,
-  }
+  },
+  image: {
+    type: String,
+  },
 }, {
   timestamps: true,
 });
