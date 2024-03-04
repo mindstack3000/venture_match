@@ -10,7 +10,9 @@ function HomePage({}: Props) {
     <main>
       <Navbar />
       <HeroSection />
-      <Features />
+      <div className="bg-[linear-gradient(#000,#12372A,#FBFADA,#fff)]">
+        <Features />
+      </div>
     </main>
   );
 }

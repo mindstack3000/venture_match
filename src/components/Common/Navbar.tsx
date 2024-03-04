@@ -25,7 +25,7 @@ function Navbar({}: Props) {
   const path = usePathname() ?? '/';
 
   return (
-    <header className="fixed top-0 left-0 z-50 flex items-center justify-between px-5 w-full bg-transparent">
+    <header className="fixed top-0 left-0 z-50 flex items-center justify-between px-5 w-full bg-white">
       <div className="w-1/3 h-full">
         <div className="w-[50px] h-[50px] md:w-[80px] md:h-[80px] relative">
           <Image
