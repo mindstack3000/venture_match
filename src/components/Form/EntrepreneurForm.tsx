@@ -1,44 +1,43 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-"use client";
-import React, { useEffect, useState } from "react";
+'use client';
+import React, { useEffect, useState } from 'react';
 
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from '@/components/ui/label';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import AddressForm from "./AddressForm";
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import AddressForm from './AddressForm';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation } from 'swiper/modules';
 
 function EntrepreneurForm() {
   const [address, setAddress] = useState({
-    line1: "",
-    line2: "",
-    plotno: "",
-    city: "",
-    state: "",
-    country: "",
-    zip: "",
+    line1: '',
+    line2: '',
+    plotno: '',
+    city: '',
+    state: '',
+    country: '',
+    zip: '',
   });
 
   const [entrepreneurForm, setEntrepreneurForm] =
     useState<EntrepreneurFormType>({
-      companyName: "",
-      idea: "",
+      companyName: '',
+      idea: '',
       partners: [],
       head_office_address: address,
-      website: "",
-      description: "",
-      founded_on: "",
-      managing_director: "",
-      parent_org: "",
+      website: '',
+      description: '',
+      founded_on: '',
+      managing_director: '',
+      parent_org: '',
       valuation: 0,
       revenue: 0,
       roe: 0,
@@ -54,8 +53,8 @@ function EntrepreneurForm() {
       royalty: 0,
       profit: 0,
       return: 0,
-      image: "",
-      type: "",
+      image: '',
+      type: '',
     });
 
   useEffect(() => {
@@ -70,10 +69,9 @@ function EntrepreneurForm() {
       <div className="flex flex-row justify-center items-center bg-slate-300 gap-5 ">
         <form className="w-1/2">
           <Swiper
-            pagination={{ type: "progressbar", dynamicBullets: true }}
+            pagination={{ type: 'progressbar', dynamicBullets: true }}
             navigation={true}
-            modules={[Pagination, Navigation]}
-          >
+            modules={[Pagination, Navigation]}>
             <SwiperSlide>
               <div className="md:w-1/2 w-full m-auto">
                 <div className="py-4 ">
@@ -163,7 +161,7 @@ function EntrepreneurForm() {
                       e.preventDefault();
                       let partners = entrepreneurForm.partners;
                       partners.push({
-                        name: "",
+                        name: '',
                         equity: 0,
                       });
 
@@ -172,8 +170,7 @@ function EntrepreneurForm() {
                         partners: partners,
                       });
                       console.log(entrepreneurForm);
-                    }}
-                  >
+                    }}>
                     Add Partner
                   </Button>
                 </div>
@@ -375,7 +372,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        supplyChain: e.target.value.split(","),
+                        supplyChain: e.target.value.split(','),
                       })
                     }
                   />
@@ -389,7 +386,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        patent: e.target.value.split(","),
+                        patent: e.target.value.split(','),
                       })
                     }
                   />
@@ -403,7 +400,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        trademark: e.target.value.split(","),
+                        trademark: e.target.value.split(','),
                       })
                     }
                   />

@@ -51,8 +51,17 @@ export const authOptions: AuthOptions = {
     async session({ session, token, user }) {
       // agian check the user is valid or not and change value of users like type and id
 
-      session.user.id = token.id as string;
-      session.user.type = 'abc';
+      if (user.id) session.user.id = user.id as string;
+      const res = await fetch(
+        'https://venture-match-backend.vercel.app/user/getData/' + user.id
+      );
+
+      const result = await res.json();
+      session.user.type = result.type;
+      session.user.id = result.id;
+      session.user.name = result.name;
+      session.user.image = result.image;
+      session.user.email = result.email;
       return session;
     },
     jwt: async ({ token, user }) => {
@@ -61,13 +70,37 @@ export const authOptions: AuthOptions = {
       }
       return token;
     },
-    signIn: async ({ profile, credentials }) => {
+    signIn: async ({ profile, credentials, user }) => {
       //check here is user valid or not
 
       if (profile?.email) {
         return true;
-      } else if (credentials?.password) {
-        return true;
+      } else if (credentials?.password && credentials?.email) {
+        const email = credentials?.email;
+        const password = credentials?.email;
+
+        const res = await fetch(
+          'https://venture-match-backend.vercel.app/user/login',
+
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+
+            body: JSON.stringify({
+              email,
+              password,
+            }),
+          }
+        );
+
+        const result = await res.json();
+
+        if (res.status == 200) {
+          user.id = result.id;
+          return true;
+        } else return false;
       } else {
         return false;
       }
