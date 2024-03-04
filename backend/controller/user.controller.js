@@ -129,7 +129,7 @@ router.post("/login", async (req, res) => {
   ! @route GET /User/getData
 */
 
-router.post("/getData/:id", auth, async (req, res) => {
+router.get("/getData/:id", async (req, res) => {
   try {
     const id = req.params.id;
 
