@@ -21,10 +21,8 @@ function InvestorDashBoard() {
           </p>
         </div>
         <div className="flex justify-center items-center w-full h-full">
-          
           <div className="border-2 flex md:flex-row flex-col border-black w-[95%] py-2 h-full">
             {/* SideNav */}
-            <div className="sideNav w-auto">
             <div className="md:w-[20%] w-full h-fit md:rounded-md md:h-full flex md:p-0 p-3 justify-between md:justify-evenly md:flex-col md:ml-2 bg-primary-100 ">
               <div className="flex flex-col gap-4">
                 <p className="flex w-32 ml-auto mr-auto">
@@ -44,41 +42,16 @@ function InvestorDashBoard() {
                 </p>
               </div>
             </div>
-            </div>
-            <div className="cards">
-            <div className="overflow-auto m-4">
-              <h1 className="uppercase text-3xl font-semibold">companies</h1>
-              <div className="w-full gap-4 md:w-[90%] flex items-center flex-col">
-                <InvestmentsCard equity="30" />
-                <InvestmentsCard equity="30" />
-                <InvestmentsCard equity="30" />
-                <InvestmentsCard equity="30" />
-                <InvestmentsCard equity="30" />
-                <InvestmentsCard equity="30" />
-                <InvestmentsCard equity="30" />
-              </div>
-            </div>
-            </div>
-            <div className="right-0">
-            <div className="md:w-[20%] w-full h-fit md:rounded-md md:h-full flex md:p-0 p-3 justify-between md:justify-evenly md:flex-col md:ml-2 bg-primary-100 ">
-              <div>
-                <p className="flex w-32 h-32 ml-auto mr-auto">
-                <Image src={PieChart} alt="" className=" w-[200px] h-[200px]" />
-                  <span className="pl-2 font-bold"></span>
-                </p>
-              </div>
-              <div className="flex flex-col gap-4">
-                <p className="flex bg-black text-2xl object-contain font-bold rounded-md text-white w-[200px] h-[100px] ml-auto mr-auto">
-                  12345$
-                  <span className="pl-2 font-bold">Investments</span>
-                </p>
-                <p className="flex  bg-black text-3xl font-bold rounded-md text-white w-[200px] h-[100px] ml-auto mr-auto">
-                  45
-                  <span className="pl-2 text-2xl">Companies</span>
-                </p>
-              </div>            
-            </div>
-            </div>
+          </div>
+          <h1 className="uppercase text-3xl font-semibold">companies</h1>
+          <div className="w-full gap-4 md:w-[90%] flex items-center flex-col">
+            <InvestmentsCard equity="30" />
+            <InvestmentsCard equity="30" />
+            <InvestmentsCard equity="30" />
+            <InvestmentsCard equity="30" />
+            <InvestmentsCard equity="30" />
+            <InvestmentsCard equity="30" />
+            <InvestmentsCard equity="30" />
           </div>
         </div>
       </div>
