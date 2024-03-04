@@ -54,7 +54,9 @@ export async function register({
   gender: string;
   highest_edu: string;
 }) {
-  const res = await fetch(' /User/register', {
+  console.log('registering');
+  // console.log(name)
+  const res = await fetch(' http://localhost:8080/User/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -72,6 +74,7 @@ export async function register({
   });
 
   const result = await res.json();
+  console.log(result);
 
   if (res.status == 201) {
     return result;
