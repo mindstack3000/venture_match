@@ -15,7 +15,7 @@ const CompanySchema = new mongoose.Schema({
     required: true,
   },
   founded_on: {
-    type: string,
+    type: String,
     required: true,
   },
   managing_director: {
@@ -32,8 +32,34 @@ const CompanySchema = new mongoose.Schema({
     type: String,
   },
   head_office_address: {
-    type: [String],
-    required: true,
+    addr_line1: {
+      type: String,
+      // required: true,
+    },
+    addr_line2: {
+      type: String,
+      // required: true,
+    },
+    addr_number: {
+      type: String,
+      // required: true,
+    },
+    city: {
+      type: String,
+      // required: true,
+    },
+    state: {
+      type: String,
+      // required: true,
+    },
+    country: {
+      type: String,
+      // required: true,
+    },
+    pincode: {
+      type: String,
+      // required: true,
+    },
   },
   valuation: {
     type: Number,

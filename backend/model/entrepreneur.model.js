@@ -18,4 +18,5 @@ const EntrepreneurSchema = new mongoose.Schema(
 );
 
 const Entrepreneur = client.model("Entrepreneur", EntrepreneurSchema);
-mongoose.model = Entrepreneur;
+
+module.exports = Entrepreneur;
