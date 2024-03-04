@@ -5,7 +5,7 @@ import { Button } from '../ui/button';
 const HeroSection = () => {
   return (
     <>
-      <div className="relative w-full my-3 bg-slate-200 flex flex-col justify-center items-center  h-screen">
+      <div className="relative w-full  bg-slate-200 flex flex-col justify-center items-center  h-screen">
         <Image
           alt="hero"
           src={'/images/heroImg.svg'}

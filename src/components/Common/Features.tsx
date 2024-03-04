@@ -6,10 +6,8 @@ import Data_Analytics from '../../assets/Data_Analytics.jpg';
 
 const Features = () => {
   return (
-    <div className="md:h-screen">
-      <h2
-        className="text-5xl md:text-6xl font-bold md:text-left text-center mt-20 mx-10"
-        id="features">
+    <div>
+      <h2 className="text-5xl md:text-6xl font-bold md:text-left text-center mx-20 text-white pt-10">
         Features
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-x-4">
