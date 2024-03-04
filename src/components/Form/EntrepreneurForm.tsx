@@ -28,6 +28,7 @@ function EntrepreneurForm() {
     zip: "",
   });
   
+  const [edit, setEdit] = useState(false);
 
   const [entrepreneurForm, setEntrepreneurForm] =
     useState<EntrepreneurFormType>({
@@ -87,6 +88,7 @@ function EntrepreneurForm() {
                         companyName: e.target.value,
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -101,6 +103,7 @@ function EntrepreneurForm() {
                         idea: e.target.value,
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -115,6 +118,7 @@ function EntrepreneurForm() {
                         description: e.target.value,
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -129,6 +133,7 @@ function EntrepreneurForm() {
                         founded_on: e.target.value,
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -142,6 +147,7 @@ function EntrepreneurForm() {
                         companyName: e.target.value,
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -155,6 +161,7 @@ function EntrepreneurForm() {
                         companyName: e.target.value,
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -193,6 +200,7 @@ function EntrepreneurForm() {
                             partners: partners,
                           });
                         }}
+                        disabled={!edit}
                       />
                     </div>
 
@@ -209,6 +217,7 @@ function EntrepreneurForm() {
                             partners: partners,
                           });
                         }}
+                        disabled={!edit}
                       />
                     </div>
                   </div>
@@ -224,6 +233,7 @@ function EntrepreneurForm() {
                         website: e.target.value,
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
               </div>
@@ -250,6 +260,7 @@ function EntrepreneurForm() {
                         valuation: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -264,6 +275,7 @@ function EntrepreneurForm() {
                         valuation: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -278,6 +290,7 @@ function EntrepreneurForm() {
                         roe: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -292,6 +305,7 @@ function EntrepreneurForm() {
                         pe_ratio: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -306,6 +320,7 @@ function EntrepreneurForm() {
                         book_val: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -320,6 +335,7 @@ function EntrepreneurForm() {
                         industry_pe_ratio: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
               </div>
@@ -337,6 +353,7 @@ function EntrepreneurForm() {
                         de_ratio: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -351,6 +368,7 @@ function EntrepreneurForm() {
                         capital: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -365,6 +383,7 @@ function EntrepreneurForm() {
                         licensing: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -379,6 +398,7 @@ function EntrepreneurForm() {
                         supplyChain: e.target.value.split(","),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -393,6 +413,7 @@ function EntrepreneurForm() {
                         patent: e.target.value.split(","),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -407,6 +428,7 @@ function EntrepreneurForm() {
                         trademark: e.target.value.split(","),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
               </div>
@@ -424,6 +446,7 @@ function EntrepreneurForm() {
                         royalty: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -438,6 +461,7 @@ function EntrepreneurForm() {
                         profit: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -452,6 +476,7 @@ function EntrepreneurForm() {
                         return: parseInt(e.target.value),
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
 
@@ -466,6 +491,7 @@ function EntrepreneurForm() {
                         image: e.target.value,
                       })
                     }
+                    disabled={!edit}
                   />
                 </div>
                 <Button className="" type="submit">
@@ -474,6 +500,9 @@ function EntrepreneurForm() {
               </div>
             </SwiperSlide>
           </Swiper>
+          <Button onClick={(e) => {
+            e.preventDefault();
+            setEdit(!edit)}}>{edit ? "Cancel Edit" : "Edit Form"}</Button>
         </form>
       </div>
     </div>
