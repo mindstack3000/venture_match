@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-
+import * as actions from "@/action";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
@@ -46,10 +46,6 @@ function RegisterForm() {
     }),
   });
 
-  enum gender {
-    male = "male",
-  }
-
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -62,15 +58,21 @@ function RegisterForm() {
     },
   });
 
-  function abc(values: z.infer<typeof formSchema>) {
-    console.log(values);
-  }
 
   return (
     <div className="items-center w-screen h-screen">
       <div className="flex flex-row justify-center items-center bg-slate-300 gap-5 ">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit((e) => console.log(e))}>
+          <form onSubmit={form.handleSubmit((e) => actions.register({
+            name: e.name,
+            email: e.email,
+            dob: e.dob,
+            phone_no: e.phoneNo,
+            password: e.password,
+            gender: e.gender,
+            profile_img: "",
+            highest_edu: ""
+          }))}>
             <FormField
               control={form.control}
               name="name"

@@ -37,12 +37,12 @@ const config = {
           foreground: 'hsl(var(--primary-100-foreground))',
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary-200))',
-          foreground: 'hsl(var(--secondary-200-foreground))',
-        },
-        'secondary-100': {
           DEFAULT: 'hsl(var(--secondary-100))',
           foreground: 'hsl(var(--secondary-100-foreground))',
+        },
+        'secondary-100': {
+          DEFAULT: 'hsl(var(--secondary-200))',
+          foreground: 'hsl(var(--secondary-200-foreground))',
         },
         territory: {
           DEFAULT: 'hsl(var(--territory))',
@@ -57,8 +57,8 @@ const config = {
           foreground: 'hsl(var(--muted-foreground))',
         },
         accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
+          DEFAULT: 'hsl(var(--secondary-200))',
+          foreground: 'hsl(var(--secondary-200-foreground))',
         },
         popover: {
           DEFAULT: 'hsl(var(--popover))',
