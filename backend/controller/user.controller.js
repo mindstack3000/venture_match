@@ -138,7 +138,7 @@ router.get("/getData/:id", async (req, res) => {
     if (user) {
       res.status(201).json({ user });
     } else {
-      res.status(500).send("Server Error");
+      res.status(500).send("Incorrect User password");  
     }
   } catch (error) {
     console.error(error);
