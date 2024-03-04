@@ -30,7 +30,7 @@ type EntrepreneurFormType = {
   de_ratio: number;
   capital: number;
   licensing: string;
-  supplyChain: string[];
+  supply_chain: string[];
   patent: string[];
   trademark: string[];
   royalty: number;
