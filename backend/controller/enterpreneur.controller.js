@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const router = express.Router();
 const auth = require("../middleware/auth");
 const User = require("../model/user.model");
+const Enterpreneur = require("../model/enterpreneur.model");
 
 /*
  *@route  POST /User/register
@@ -29,8 +30,9 @@ router.post("/register", async (req, res) => {
       profile_img,
       gender,
       highest_edu,
+      type
     } = req.body;
-
+    
     // Check if the user already exists
     const user = await User.findOne({ email });
     if (user) return res.status(400).json({ msg: "Username already exists" });
@@ -126,23 +128,21 @@ router.post("/login", async (req, res) => {
 });
 
 /*
-  ! @route GET /User/getData
+  ! @route GET /User/settype
 */
 
-router.get("/getData/:id", async (req, res) => {
+router.post("/settype", auth, async (req, res) => {
   try {
-    const id = req.params.id;
+    const { type } = req.body;
+    const user = await User.findOne({ _id: req.user });
+    if (!user) return res.status(400).json({ msg: "User does not exist" });
 
-    // find the account by id
-    const user = await User.findById(id);
-    if (user) {
-      res.status(201).json({ user });
-    } else {
-      res.status(500).send("Server Error");
-    }
+    user.type = type;
+    await user.save();
+    res.status(200).json({ message: "User type updated successfully" });
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Server Error");
+    console.log(error);
+    res.status(500).json({ message: "Server Error" });
   }
 });
 
