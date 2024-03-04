@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import NextAuthProvider from '@/provider/nextAuthProvider';
-import { authOptions } from '@/auth';
-import { getServerSession } from 'next-auth';
+import UserProvider from '@/provider/userProvider';
 
 export const metadata: Metadata = {
   title: 'Venture Match',
@@ -14,13 +12,11 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession(authOptions);
-
   return (
     <html lang="en">
-      <NextAuthProvider session={session}>
+      <UserProvider>
         <body>{children}</body>
-      </NextAuthProvider>
+      </UserProvider>
     </html>
   );
 }

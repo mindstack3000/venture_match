@@ -49,9 +49,11 @@ export const authOptions: AuthOptions = {
   jwt: { encode, decode },
   callbacks: {
     async session({ session, token, user }) {
+      console.log(user, token);
       // agian check the user is valid or not and change value of users like type and id
 
       if (user.id) session.user.id = user.id as string;
+
       const res = await fetch(
         'https://venture-match-backend.vercel.app/user/getData/' + user.id,
         {
@@ -68,6 +70,8 @@ export const authOptions: AuthOptions = {
       session.user.name = result.name;
       session.user.image = result.image;
       session.user.email = result.email;
+
+      console.log(session);
       return session;
     },
     jwt: async ({ token, user }) => {
@@ -81,9 +85,9 @@ export const authOptions: AuthOptions = {
 
       if (profile?.email) {
         return true;
-      } else if (credentials?.password && credentials?.email) {
+      } else if (credentials?.password) {
         const email = credentials?.email;
-        const password = credentials?.email;
+        const password = credentials?.password;
 
         const res = await fetch(
           'https://venture-match-backend.vercel.app/user/login',
@@ -103,8 +107,11 @@ export const authOptions: AuthOptions = {
 
         const result = await res.json();
 
-        if (res.status == 200) {
-          user.id = result.id;
+        console;
+
+        if (res.status == 201) {
+          user.id = result.user_id;
+          console.log(user.id);
           return true;
         } else return false;
       } else {

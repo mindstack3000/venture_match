@@ -1,8 +1,6 @@
 export {
-  loginWithGoogle,
-  loginWithCredentials,
+  LoginWithCredentials,
   register,
   setEntrepreneurData,
   setInvestor,
-  logOut,
 } from './auth';
