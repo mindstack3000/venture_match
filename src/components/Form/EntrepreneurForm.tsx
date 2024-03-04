@@ -1,45 +1,47 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-'use client';
-import React, { useEffect, useState } from 'react';
+"use client";
+import React, { useContext, useEffect, useState } from "react";
+import * as action from "@/action";
+import { Label } from "@/components/ui/label";
 
-import { Label } from '@/components/ui/label';
+import { Button } from "@/components/ui/button";
 
-import { Button } from '@/components/ui/button';
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import AddressForm from "./AddressForm";
 
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import AddressForm from './AddressForm';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper/modules";
+import { UserContext } from "@/provider/userProvider";
 
 function EntrepreneurForm() {
+  const { user } = useContext(UserContext);
   const [address, setAddress] = useState({
-    line1: '',
-    line2: '',
-    plotno: '',
-    city: '',
-    state: '',
-    country: '',
-    zip: '',
+    line1: "",
+    line2: "",
+    plotno: "",
+    city: "",
+    state: "",
+    country: "",
+    zip: "",
   });
 
   const [edit, setEdit] = useState(false);
 
   const [entrepreneurForm, setEntrepreneurForm] =
     useState<EntrepreneurFormType>({
-      company_name: '',
-      business_idea: '',
+      company_name: "",
+      business_idea: "",
       partners: [],
       head_office_address: address,
-      website: '',
-      description: '',
-      founded_on: '',
-      managing_director: '',
-      parent_org: '',
+      website: "",
+      description: "",
+      founded_on: "",
+      managing_director: "",
+      parent_org: "",
       valuation: 0,
       revenue: 0,
       roe: 0,
@@ -48,15 +50,15 @@ function EntrepreneurForm() {
       industry_pe_ratio: 0,
       de_ratio: 0,
       capital: 0,
-      licensing: '',
+      licensing: "",
       supply_chain: [],
       patent: [],
       trademark: [],
       royalty: 0,
       profit: 0,
       return_per: 0,
-      image: '',
-      type: '',
+      image: "",
+      type: "",
     });
 
   useEffect(() => {
@@ -69,9 +71,14 @@ function EntrepreneurForm() {
   return (
     <div className="items-center w-screen ">
       <div className="flex flex-row justify-center items-center bg-slate-300 gap-5 ">
-        <form className="w-1/2" onSubmit={(e) => console.log(e)}>
+        <form
+          className="w-1/2"
+          onSubmit={(e) => {
+            e.preventDefault();
+            action.setEntrepreneurData(entrepreneurForm, user.id);
+          }}>
           <Swiper
-            pagination={{ type: 'progressbar', dynamicBullets: true }}
+            pagination={{ type: "progressbar", dynamicBullets: true }}
             navigation={true}
             modules={[Pagination, Navigation]}>
             <SwiperSlide>
@@ -169,7 +176,7 @@ function EntrepreneurForm() {
                       e.preventDefault();
                       let partners = entrepreneurForm.partners;
                       partners.push({
-                        name: '',
+                        name: "",
                         equity: 0,
                       });
 
@@ -392,7 +399,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        supply_chain: e.target.value.split(','),
+                        supply_chain: e.target.value.split(","),
                       })
                     }
                     disabled={!edit}
@@ -407,7 +414,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        patent: e.target.value.split(','),
+                        patent: e.target.value.split(","),
                       })
                     }
                     disabled={!edit}
@@ -422,7 +429,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        trademark: e.target.value.split(','),
+                        trademark: e.target.value.split(","),
                       })
                     }
                     disabled={!edit}
@@ -502,7 +509,7 @@ function EntrepreneurForm() {
               e.preventDefault();
               setEdit(!edit);
             }}>
-            {edit ? 'Cancel Edit' : 'Edit Form'}
+            {edit ? "Cancel Edit" : "Edit Form"}
           </Button>
         </form>
       </div>

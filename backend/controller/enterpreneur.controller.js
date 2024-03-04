@@ -1,11 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const Enterpreneur = require("../model/enterpreneur.model");
+const Entrepreneur = require("../model/entrepreneur.model");
 const Partner = require("../model/partner.model");
 const Company = require("../model/company.model");
 
 /*
- *@route  POST /enterpreneur/register/:id
+ *@route  POST /entrepreneur/register/:id
  */
 
 router.post("/register/:id", async (req, res) => {
@@ -18,7 +18,7 @@ router.post("/register/:id", async (req, res) => {
       managing_director,
       parent_org,
       website,
-      partner,
+      partners,
       head_office_address,
       valuation,
       revenue,
@@ -42,15 +42,17 @@ router.post("/register/:id", async (req, res) => {
     const id = req.params.id;
 
     const newPartners = await Promise.all(
-      partner.map(async (item) => {
-        let newPartner = new Partner({
-          name: item.name,
-          equity: item.equity,
-        });
-
-        return await newPartner.save();
-      })
+      partners &&
+        partners.map(async (item) => {
+          console.log(item)
+          let newPartner = new Partner({
+            name: item.name,
+            equity: item.equity,
+          });
+          return await newPartner.save();
+        })
     );
+    const partnerIds = newPartners.map((partner) => partner._id);
 
     const newCompany = new Company({
       company_name,
@@ -59,7 +61,7 @@ router.post("/register/:id", async (req, res) => {
       founded_on,
       managing_director,
       parent_org,
-      partners: newPartners.map((partner) => partner._id),
+      partners: partnerIds,
       website,
       head_office_address,
       valuation,
@@ -77,31 +79,37 @@ router.post("/register/:id", async (req, res) => {
       royalty,
       profit,
       return_per,
-      type,
+      type : "Entreperneur",
       image,
     });
 
-    await newCompany.save(); // Save the newCompany instance
+    await newCompany.save();
 
-    const newEnterpreneur = new Enterpreneur({
+    const newEntrepreneur = new Entrepreneur({
       user_id: id,
       company_id: newCompany._id,
     });
 
-    await newEnterpreneur.save(); // Save the newEnterpreneur instance
+    await newEntrepreneur.save();
 
-    if(newEnterpreneur){
-      res.status(201).json({ message: "Company registered successfully", company : newCompany, isregistered : true });
-    }else{
-      res.status(400).json({ message: "Company registration failed",isregistered : false });
-    }
-
-    // You can send a response here if needed
-    res.status(201).json({ message: "Company registered successfully" });
+    res.status(201).json({
+      message: "Company registered successfully",
+      company: newCompany,
+      entrepreneur: newEntrepreneur,
+      isRegistered: true,
+    });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+// /* 
+//   !GET /entrepreneur/rank/
+// */
+
+// router.post("/rank", async (req, res) => {
+
+// })
 
 module.exports = router;
