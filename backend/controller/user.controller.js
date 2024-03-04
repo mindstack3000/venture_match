@@ -125,4 +125,52 @@ router.post("/login", async (req, res) => {
   }
 });
 
+/*
+  * @route GET /User/getData
+*/
+
+router.get("/getData/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    // find the account by id
+    const user = await User.findById(id);
+    if (user) {
+      res.status(201).json({ user });
+    } else {
+      res.status(500).send("Incorrect User password");  
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
+});
+
+/*  
+  * @route POST /User/gettype
+*/
+
+router.get("/gettype/:id", auth, async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    // find the account by id
+    const user = await User.findById(id);
+    let flag ;
+    if (user?.type === null) {
+      flag = null;
+    } else if (user.type == "Enterpreneur"){
+      const enterpreneurData = await User.findById({user_id : id});
+      flag = enterpreneurData;
+    }else {
+      flag = 0;
+    }
+    return 
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
+});
+
+
 module.exports = router;
