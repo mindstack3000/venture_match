@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const client = require("../config/connect");
 
-const AddresSchema = new mongoose.Schema({
+const AddressSchema = new mongoose.Schema({
   addr_line1: {
     type: String,
     required: true,
@@ -34,5 +34,5 @@ const AddresSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-const Address = client.model("Address", AddresSchema);
+const Address = client.model("Address", AddressSchema);
 mongoose.model = Address;
