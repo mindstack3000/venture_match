@@ -6,7 +6,7 @@ import { getServerSession } from 'next-auth';
 
 export const metadata: Metadata = {
   title: 'Venture Match',
-  description: '',
+  description: 'venture match',
 };
 
 export default async function RootLayout({
