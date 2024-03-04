@@ -16,7 +16,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
-import { string } from "zod";
 
 function EntrepreneurForm() {
   const [address, setAddress] = useState({
@@ -31,30 +30,30 @@ function EntrepreneurForm() {
 //licencing boolean
   const [entrepreneurForm, setEntrepreneurForm] =
     useState<EntrepreneurFormType>({
-      companyName: "",
+      company_name: "",
       business_idea: "",
-      partner_id: [],
+      partners: [],
       head_office_address: address,
       website: "",
       description: "",
-      founded: "",
+      founded_on: "",
       managing_director: "",
-      parent_organization: "",
+      parent_org: "",
       valuation: 0,
       revenue: 0,
       roe: 0,
       pe_ratio: 0,
-      book_value: 0,
+      book_val: 0,
       industry_pe_ratio: 0,
       de_ratio: 0,
       capital: 0,
-      licensing: [],
+      licensing: "",
       supplyChain: [],
       patent: [],
       trademark: [],
       royalty: 0,
       profit: 0,
-      return: 0,
+      return_per: 0,
       image: "",
       type: "",
     });
@@ -84,7 +83,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        companyName: e.target.value,
+                        company_name: e.target.value,
                       })
                     }
                   />
@@ -98,7 +97,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        idea: e.target.value,
+                        business_idea: e.target.value,
                       })
                     }
                   />
@@ -139,7 +138,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        companyName: e.target.value,
+                        managing_director: e.target.value,
                       })
                     }
                   />
@@ -152,7 +151,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        companyName: e.target.value,
+                        parent_org: e.target.value,
                       })
                     }
                   />
@@ -172,7 +171,7 @@ function EntrepreneurForm() {
                         ...entrepreneurForm,
                         partners: partners,
                       });
-                      console.log(entrepreneurForm);
+                      // console.log(entrepreneurForm);
                     }}
                   >
                     Add Partner
@@ -261,7 +260,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        valuation: parseInt(e.target.value),
+                        revenue: parseInt(e.target.value),
                       })
                     }
                   />
@@ -362,9 +361,10 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        licensing: e.target.value.split(","),
+                        licensing: e.target.value,
                       })
                     }
+
                   />
                 </div>
 
@@ -449,7 +449,7 @@ function EntrepreneurForm() {
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        return: parseInt(e.target.value),
+                        return_per: parseInt(e.target.value),
                       })
                     }
                   />
