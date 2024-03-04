@@ -27,7 +27,7 @@ type Props = {
 function AddressForm({ address, setAddress }: Props) {
   return (
     <div>
-      <div>
+      <div className='py-4'>
         <Label>Address Line 1</Label>
         <Input
           placeholder="Address Line 1"
@@ -36,7 +36,7 @@ function AddressForm({ address, setAddress }: Props) {
         />
       </div>
 
-      <div>
+      <div className='py-4'>
         <Label>Address Line 2</Label>
         <Input
           placeholder="Address Line 2"
@@ -45,7 +45,7 @@ function AddressForm({ address, setAddress }: Props) {
         />
       </div>
 
-      <div>
+      <div className='py-4'>
         <Label>Plot No/Flat no</Label>
         <Input
           placeholder="Plot No"
@@ -54,7 +54,7 @@ function AddressForm({ address, setAddress }: Props) {
         />
       </div>
 
-      <div>
+      <div className='py-4'>
         <Label>City</Label>
         <Input
           placeholder="City"
@@ -63,7 +63,7 @@ function AddressForm({ address, setAddress }: Props) {
         />
       </div>
 
-      <div>
+      <div className='py-4'>
         <Label>State</Label>
         <Input
           placeholder="State"
@@ -72,7 +72,7 @@ function AddressForm({ address, setAddress }: Props) {
         />
       </div>
 
-      <div>
+      <div className='py-4'>
         <Label>Country</Label>
         <Input
           placeholder="Country"
@@ -81,7 +81,7 @@ function AddressForm({ address, setAddress }: Props) {
         />
       </div>
 
-      <div>
+      <div className='py-4'>
         <Label>Zip</Label>
         <Input
           placeholder="Zip"

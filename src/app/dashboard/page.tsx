@@ -1,14 +1,7 @@
-import Navbar from '@/components/Common/Navbar';
-import React from 'react';
+import EntrepreneurDashboard from '@/pages/EntrepreneurDashboard';
 
-type Props = {};
-
-function Page({}: Props) {
-  return (
-    <div>
-      <Navbar />
-    </div>
-  );
+function Page() {
+  return <EntrepreneurDashboard />;
 }
 
 export default Page;
