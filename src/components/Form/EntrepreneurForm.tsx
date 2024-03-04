@@ -16,6 +16,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
+import { string } from "zod";
 
 function EntrepreneurForm() {
   const [address, setAddress] = useState({
@@ -27,27 +28,27 @@ function EntrepreneurForm() {
     country: "",
     zip: "",
   });
-
+//licencing boolean
   const [entrepreneurForm, setEntrepreneurForm] =
     useState<EntrepreneurFormType>({
       companyName: "",
-      idea: "",
-      partners: [],
+      business_idea: "",
+      partner_id: [],
       head_office_address: address,
       website: "",
       description: "",
-      founded_on: "",
+      founded: "",
       managing_director: "",
-      parent_org: "",
+      parent_organization: "",
       valuation: 0,
       revenue: 0,
       roe: 0,
       pe_ratio: 0,
-      book_val: 0,
+      book_value: 0,
       industry_pe_ratio: 0,
       de_ratio: 0,
       capital: 0,
-      licensing: 0,
+      licensing: [],
       supplyChain: [],
       patent: [],
       trademark: [],
@@ -90,9 +91,9 @@ function EntrepreneurForm() {
                 </div>
 
                 <div className="py-4 ">
-                  <Label>Idea</Label>
+                  <Label>Business Idea</Label>
                   <Textarea
-                    placeholder="Idea"
+                    placeholder="Business Idea"
                     className="bg-white"
                     onChange={(e) =>
                       setEntrepreneurForm({
@@ -118,7 +119,7 @@ function EntrepreneurForm() {
                 </div>
 
                 <div className="py-4 ">
-                  <Label>Founder Name</Label>
+                  <Label>Founded On</Label>
                   <Input
                     type="date"
                     placeholder="Founded On"
@@ -147,7 +148,7 @@ function EntrepreneurForm() {
                 <div className="py-4 ">
                   <Label>Parent Organization</Label>
                   <Input
-                    placeholder="Managing Director"
+                    placeholder="Parent Organization"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -216,7 +217,7 @@ function EntrepreneurForm() {
                 <div className="py-4 ">
                   <Label>Business Website</Label>
                   <Input
-                    placeholder="Managing Director"
+                    placeholder="Website"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -242,7 +243,7 @@ function EntrepreneurForm() {
                   <Label>Valuation</Label>
                   <Input
                     type="number"
-                    placeholder="Managing Director"
+                    placeholder="Valuation"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -256,7 +257,7 @@ function EntrepreneurForm() {
                   <Label>Revenue</Label>
                   <Input
                     type="number"
-                    placeholder="Managing Director"
+                    placeholder="Revenue"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -270,7 +271,7 @@ function EntrepreneurForm() {
                   <Label>Return on Equity</Label>
                   <Input
                     type="number"
-                    placeholder="Managing Director"
+                    placeholder="Return on Equity"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -284,7 +285,7 @@ function EntrepreneurForm() {
                   <Label>PE Ratio</Label>
                   <Input
                     type="number"
-                    placeholder="Managing Director"
+                    placeholder="PE Ratio"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -298,7 +299,7 @@ function EntrepreneurForm() {
                   <Label>Book Value</Label>
                   <Input
                     type="number"
-                    placeholder="Managing Director"
+                    placeholder="Book Value"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -312,7 +313,7 @@ function EntrepreneurForm() {
                   <Label>Industry PE Ratio</Label>
                   <Input
                     type="number"
-                    placeholder="Managing Director"
+                    placeholder="INdustry PE Ratio"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -329,7 +330,7 @@ function EntrepreneurForm() {
                   <Label>Debt Equity Ratio</Label>
                   <Input
                     type="number"
-                    placeholder="Managing Director"
+                    placeholder="Debt Equity Ratio"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -343,7 +344,7 @@ function EntrepreneurForm() {
                   <Label>Capital</Label>
                   <Input
                     type="number"
-                    placeholder="Managing Director"
+                    placeholder="Capital"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -356,12 +357,12 @@ function EntrepreneurForm() {
                 <div className="py-4 ">
                   <Label>Licensing</Label>
                   <Input
-                    type="number"
-                    placeholder="Managing Director"
+                    type="string"
+                    placeholder="Licensing"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
-                        licensing: parseInt(e.target.value),
+                        licensing: e.target.value.split(","),
                       })
                     }
                   />
@@ -371,7 +372,7 @@ function EntrepreneurForm() {
                   <Label>Supply Chain</Label>
                   <Input
                     type="text"
-                    placeholder="Managing Director"
+                    placeholder="Supply Chain"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -385,7 +386,7 @@ function EntrepreneurForm() {
                   <Label>Patent</Label>
                   <Input
                     type="text"
-                    placeholder="Managing Director"
+                    placeholder="Patent"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -399,7 +400,7 @@ function EntrepreneurForm() {
                   <Label>Trademark</Label>
                   <Input
                     type="text"
-                    placeholder="Managing Director"
+                    placeholder="Trademark"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -416,7 +417,7 @@ function EntrepreneurForm() {
                   <Label>Royalty</Label>
                   <Input
                     type="number"
-                    placeholder="Managing Director"
+                    placeholder="Royalty"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -430,7 +431,7 @@ function EntrepreneurForm() {
                   <Label>Profit</Label>
                   <Input
                     type="number"
-                    placeholder="Managing Director"
+                    placeholder="Profit"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -444,7 +445,7 @@ function EntrepreneurForm() {
                   <Label>Return</Label>
                   <Input
                     type="number"
-                    placeholder="Managing Director"
+                    placeholder="Return"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
@@ -458,7 +459,7 @@ function EntrepreneurForm() {
                   <Label>Image</Label>
                   <Input
                     type="file"
-                    placeholder="Managing Director"
+                    placeholder="Image"
                     onChange={(e) =>
                       setEntrepreneurForm({
                         ...entrepreneurForm,
