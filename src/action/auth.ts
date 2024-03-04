@@ -75,6 +75,10 @@ export async function register({
 
   if (res.status == 201) {
     return result;
+  } else {
+    return {
+      error: result.message,
+    };
   }
 }
 
