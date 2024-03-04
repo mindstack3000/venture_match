@@ -39,3 +39,11 @@ type EntrepreneurFormType = {
   type: string;
   image: string;
 };
+type InvestorFormType = {
+  capital:number;
+  individual?:boolean;
+  experience?:number;
+  description:string;
+  occupation?:string;
+  company?: string;
+};
