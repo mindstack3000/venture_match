@@ -27,6 +27,7 @@ function EntrepreneurForm() {
     country: "",
     zip: "",
   });
+  
 
   const [entrepreneurForm, setEntrepreneurForm] =
     useState<EntrepreneurFormType>({

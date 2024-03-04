@@ -157,3 +157,7 @@
     left: 10%;
   }
 }
+
+.sample-slider [class^="swiper-button-"]{
+  color: var(--primary-200);
+}
