@@ -79,7 +79,7 @@ router.post("/register/:id", async (req, res) => {
       royalty,
       profit,
       return_per,
-      type,
+      type : "Entreperneur",
       image,
     });
 
@@ -103,5 +103,13 @@ router.post("/register/:id", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+// /* 
+//   !GET /entrepreneur/rank/
+// */
+
+// router.post("/rank", async (req, res) => {
+
+// })
 
 module.exports = router;
