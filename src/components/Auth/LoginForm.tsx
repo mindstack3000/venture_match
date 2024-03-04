@@ -40,7 +40,7 @@ const LoginForm = () => {
         <div className="signUpWrapper ">
             <div className="formWrapper items-center justify-center flex h-screen px-1.5 ">
                 <div className="left">
-                </div>-
+                </div>
                 <div className="right">
                     <h3 className='text-center text-2xl font-semibold'>Welcome Back</h3>
                     
