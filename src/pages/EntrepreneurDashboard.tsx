@@ -1,18 +1,21 @@
 'use client'
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Command, Settings, Filter } from "lucide-react";
 import EnterpreneurDashboardCard from "@/components/Common/EnterpreneurDashboardCard";
 import Data from "@/app/marketplace/data";
 import { Button } from "@/components/ui/button";
 import EnterpreneurForm from "@/components/Form/EntrepreneurForm";
+import { UserContext } from "@/provider/userProvider";
 
 type Props = {};
 
 function EntrepreneurDashboard({}: Props) {
   const [type, setType] = useState(
-    "Enterpreneur" as "Enterpreneur" | "Investor" | null
+    null as "Enterpreneur" | "Investor" | null
   );
   const [editdata, seteditdata] = useState(false);
+  const{user}=useContext(UserContext);
+  console.log(user);
 
   return (
     <>
@@ -58,7 +61,7 @@ function EntrepreneurDashboard({}: Props) {
             </div>
 
 
-            {editdata === false ? (
+            {/* {editdata === false ? (
               <div className="overflow-auto m-4">
                 <h1 className="uppercase text-3xl font-semibold">Companies</h1>
                 <div className="w-full md:w-[90%] flex items-center flex-col">
@@ -68,7 +71,8 @@ function EntrepreneurDashboard({}: Props) {
                     ))}
                 </div>
               </div>
-            ) : <EnterpreneurForm />}
+            ) : <EnterpreneurForm />} */}
+            {type === null && <EnterpreneurForm />}
           </div>
         </div>
       </div>

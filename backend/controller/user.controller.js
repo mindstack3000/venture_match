@@ -156,16 +156,18 @@ router.get("/gettype/:id", auth, async (req, res) => {
 
     // find the account by id
     const user = await User.findById(id);
-    let flag ;
+    let flag , enterpreneurData;
     if (user?.type === null) {
       flag = null;
     } else if (user.type == "Enterpreneur"){
       const enterpreneurData = await User.findById({user_id : id});
       flag = enterpreneurData;
+      enterpreneurData = true;
     }else {
       flag = 0;
+      enterpreneurData = false;
     }
-    return 
+    return  res.status(201).json({ flag, enterpreneurData });
   } catch (error) {
     console.error(error);
     res.status(500).send("Server Error");
