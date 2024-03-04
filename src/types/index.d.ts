@@ -1,6 +1,6 @@
 type EntrepreneurFormType = {
-  companyName: string;
-  idea: string;
+  company_name: string;
+  business_idea: string;
   description: string;
   founded_on: string;
   managing_director: string;
@@ -9,6 +9,8 @@ type EntrepreneurFormType = {
     name: string;
     equity: number;
   }[];
+  founded_on : string;
+  parent_org: string;
   website: string;
   head_office_address: {
     line1: string;
@@ -27,13 +29,13 @@ type EntrepreneurFormType = {
   industry_pe_ratio: number;
   de_ratio: number;
   capital: number;
-  licensing: number;
+  licensing: string;
   supplyChain: string[];
   patent: string[];
   trademark: string[];
   royalty: number;
   profit: number;
-  return: number;
+  return_per: number;
   type: string;
   image: string;
 };

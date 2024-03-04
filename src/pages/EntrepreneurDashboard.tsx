@@ -1,21 +1,22 @@
-'use client';
-import React, { useState } from 'react';
-import { Command, Settings, Filter } from 'lucide-react';
-import EnterpreneurDashboardCard from '@/components/Common/EnterpreneurDashboardCard';
-import Data from '@/app/marketplace/data';
-import { Button } from '@/components/ui/button';
+"use client";
+import React, { useState } from "react";
+import { Command, Settings, Filter } from "lucide-react";
+import EnterpreneurDashboardCard from "@/components/Common/EnterpreneurDashboardCard";
+import Data from "@/app/marketplace/data";
+import { Button } from "@/components/ui/button";
+import EnterpreneurForm from "@/components/Form/EntrepreneurForm";
 
 type Props = {};
 
 function EntrepreneurDashboard({}: Props) {
   const [type, setType] = useState(
-    'Enterpreneur' as 'Enterpreneur' | 'Investor' | null
+    "Enterpreneur" as "Enterpreneur" | "Investor" | null
   );
 
   return (
-    <div>
+    <>
       <div className="h-screen">
-        <div className=" flex items-center p-4 justify-between text-white text-xl w-full bg-primary">
+        {/* <div className=" flex items-center p-4 justify-between text-white text-xl w-full bg-primary">
           <span className="flex flex-col p-2">
             <p className="font-semibold capitalize">welcome back,</p>
             <p className="font-bold text-4xl capitalize">{`${'Elon Musk'}`}</p>
@@ -31,7 +32,6 @@ function EntrepreneurDashboard({}: Props) {
 
         <div className="flex justify-center items-center w-full h-full">
           <div className="border-2 flex md:flex-row flex-col border-black w-[95%] py-2 h-full">
-            {/* SideNav */}
             <div className="md:w-[20%] w-full h-fit md:rounded-md md:h-full flex md:p-0 p-3 justify-between md:justify-evenly md:flex-col md:ml-2 bg-primary-100 ">
               <div className="flex flex-col gap-4">
                 <p className="flex w-32 ml-auto mr-auto">
@@ -55,10 +55,6 @@ function EntrepreneurDashboard({}: Props) {
             <div className="overflow-auto m-4">
               <h1 className="uppercase text-3xl font-semibold">companies</h1>
               <div className="w-full md:w-[90%] flex items-center flex-col">
-                {/* {type === null ? (
-                <div>Are you an Enterpreneur or an Investor?</div>
-        
-              ) : null} */}
 
                 {type === 'Enterpreneur' &&
                   Data.map((item, index) => (
@@ -67,9 +63,10 @@ function EntrepreneurDashboard({}: Props) {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
+        <EnterpreneurForm />
       </div>
-    </div>
+    </>
   );
 }
 
