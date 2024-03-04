@@ -27,7 +27,7 @@ function EntrepreneurForm() {
     country: "",
     zip: "",
   });
-  
+
   const [edit, setEdit] = useState(false);
 
   const [entrepreneurForm, setEntrepreneurForm] =
@@ -68,13 +68,14 @@ function EntrepreneurForm() {
   }, [address]);
 
   return (
-    <div className="items-center w-screen ">
-      <div className="flex flex-row justify-center items-center bg-slate-300 gap-5 ">
-        <form className="w-1/2" onSubmit={(e)=>console.log(e)}>
+    <div className="items-center w-full">
+      <div className="flex  justify-center items-center ">
+        <form className="w-1/2" onSubmit={(e) => console.log(e)}>
           <Swiper
             pagination={{ type: "progressbar", dynamicBullets: true }}
             navigation={true}
             modules={[Pagination, Navigation]}
+            className="bg-white"
           >
             <SwiperSlide>
               <div className="md:w-1/2 w-full m-auto">
@@ -500,9 +501,14 @@ function EntrepreneurForm() {
               </div>
             </SwiperSlide>
           </Swiper>
-          <Button onClick={(e) => {
-            e.preventDefault();
-            setEdit(!edit)}}>{edit ? "Cancel Edit" : "Edit Form"}</Button>
+          <Button
+            onClick={(e) => {
+              e.preventDefault();
+              setEdit(!edit);
+            }}
+          >
+            {edit ? "Cancel Edit" : "Edit Form"}
+          </Button>
         </form>
       </div>
     </div>

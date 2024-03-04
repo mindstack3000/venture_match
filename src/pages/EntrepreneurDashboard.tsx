@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState } from "react";
 import { Command, Settings, Filter } from "lucide-react";
 import EnterpreneurDashboardCard from "@/components/Common/EnterpreneurDashboardCard";
@@ -13,6 +13,17 @@ function EntrepreneurDashboard({}: Props) {
     "Enterpreneur" as "Enterpreneur" | "Investor" | null
   );
   const [editdata, seteditdata] = useState(false);
+  const [filter, setFilter] = useState("");
+
+  const handleFilterChange = (selectedFilter: string) => {
+    setFilter(selectedFilter);
+  };
+
+  const handleLogout = () => {
+    // Perform logout actions, e.g., redirect to the home page
+    // Replace '/home' with the actual path to your home page
+    window.location.href = '/';
+  };
 
   return (
     <>
@@ -20,12 +31,12 @@ function EntrepreneurDashboard({}: Props) {
         <div className="flex items-center p-4 justify-between text-white text-xl w-full bg-primary">
           <span className="flex flex-col p-2">
             <p className="font-semibold capitalize">Welcome back,</p>
-            <p className="font-bold text-4xl capitalize">{`${'Elon Musk'}`}</p>
-            <p className="font-light text-xl">{`${'elommusk@mail.com'}`}</p>
+            <p className="font-bold text-4xl capitalize">{`${"Elon Musk"}`}</p>
+            <p className="font-light text-xl">{`${"elommusk@mail.com"}`}</p>
           </span>
-          {type === 'Enterpreneur' ? (
+          {type === "Enterpreneur" ? (
             <p className="uppercase text-nowrap p-2">
-              <span>total companies : </span>
+              <span>Total companies : </span>
               <span className="font-bold text-3xl">{`${Data.length}`}</span>
             </p>
           ) : null}
@@ -33,17 +44,27 @@ function EntrepreneurDashboard({}: Props) {
 
         <div className="flex justify-center items-center w-full h-full">
           <div className="border-2 flex md:flex-row flex-col border-black w-[95%] py-2 h-full">
-            <div className="md:w-[20%] w-full h-fit md:rounded-md md:h-full flex md:p-0 p-3 justify-between md:justify-evenly md:flex-col md:ml-2 bg-primary-100 ">
+            <div
+              className={`${
+                editdata ? "md:w-[250px]" : "w-[20%]"
+              } h-fit md:rounded-md md:h-full flex md:p-0 p-3 justify-between md:justify-evenly md:flex-col md:ml-2 bg-primary-100`}
+            >
               <div className="flex flex-col gap-4">
-                <Button className="flex w-32 ml-auto mr-auto" onClick={(e) => {
-                  seteditdata(false);
-                }}>
+                <Button
+                  className="flex w-32 ml-auto mr-auto"
+                  onClick={(e) => {
+                    seteditdata(false);
+                  }}
+                >
                   <Command />
                   <span className="pl-2 font-bold">Companies</span>
                 </Button>
-                <Button className="flex w-32 ml-auto mr-auto" onClick={(e) => {
-                  seteditdata(true);
-                }}>
+                <Button
+                  className="flex w-32 ml-auto mr-auto"
+                  onClick={(e) => {
+                    seteditdata(true);
+                  }}
+                >
                   <Settings />
                   <span className="pl-2 font-bold">Settings</span>
                 </Button>
@@ -57,7 +78,6 @@ function EntrepreneurDashboard({}: Props) {
               </div>
             </div>
 
-
             {editdata === false ? (
               <div className="overflow-auto m-4">
                 <h1 className="uppercase text-3xl font-semibold">Companies</h1>
@@ -68,7 +88,12 @@ function EntrepreneurDashboard({}: Props) {
                     ))}
                 </div>
               </div>
-            ) : <EnterpreneurForm />}
+            ) : (
+              <div className="w-[80%]">
+
+              <EnterpreneurForm />
+              </div>
+            )}
           </div>
         </div>
       </div>

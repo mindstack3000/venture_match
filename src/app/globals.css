@@ -162,3 +162,30 @@
 .sample-slider [class^="swiper-button-"]{
   color: var(--primary-200);
 }
+
+.sample-slider [class^="swiper-button-"] {
+  color: var(--foreground);
+}
+
+.swiper-button-next {
+  margin-top: 0px;
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  width: 45px;
+  height: 45px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background-color: var(--primary-100);
+}
+
+.swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 45px;
+  height: 50px;
+  transform: translateY(-50%);
+  margin-top: 0px;
+  border-radius: 50%;
+}
