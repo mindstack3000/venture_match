@@ -1,3 +1,4 @@
+import HeroSection from '@/components/Common/HeroSection';
 import Navbar from '@/components/Common/Navbar';
 import React from 'react';
 
@@ -7,6 +8,7 @@ function HomePage({}: Props) {
   return (
     <main>
       <Navbar />
+      <HeroSection />
     </main>
   );
 }

@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import * as action from '@/action';
 import { usePathname } from 'next/navigation';
+import { LogIn, UserPlus } from 'lucide-react';
 
 type Props = {};
 
@@ -24,29 +25,37 @@ function Navbar({}: Props) {
   const path = usePathname() ?? '/';
 
   return (
-    <header className="flex items-center justify-between px-5 w-full">
-      <div className="w-1/3">
-        <Image alt="logo" src={'/logo/logo.svg'} width={100} height={100} />
+    <header className="fixed top-0 left-0 z-50 flex items-center justify-between px-5 w-full bg-transparent">
+      <div className="w-1/3 h-full">
+        <div className="w-[50px] h-[50px] md:w-[80px] md:h-[80px] relative">
+          <Image
+            alt="logo"
+            src={'/logo/logo.svg'}
+            className="rounded-full"
+            layout="fill"
+            objectFit="cover"
+          />
+        </div>
       </div>
 
       <nav className="w-2/3 flex items-center justify-center">
-        <ul className="flex items-center justify-between gap-5 bg-secondary-100 p-1 rounded-full uppercase w-fit ">
+        <ul className="flex items-center justify-between gap-5 md:bg-secondary-100 p-1 rounded-full uppercase w-fit ">
           <li
-            className={`text-center bg-white px-8 py-2.5 rounded-full text-xl font-semibold hover:bg-secondary cursor-pointer ${
+            className={`text-center md:bg-white md:px-8 md:py-2.5 rounded-full text-base md:text-xl font-semibold hover:bg-secondary cursor-pointer ${
               path == '/' &&
-              'bg-primary-100 text-primary-100-foreground hover:bg-primary-100'
+              'md:bg-primary-100 text-primary-100-foreground hover:bg-primary-100'
             }`}>
             <Link href="/">Home</Link>
           </li>
           <li
-            className={`text-center bg-white px-8 py-2.5 rounded-full text-xl font-semibold hover:bg-secondary cursor-pointer ${
+            className={`text-center md:bg-white md:px-8 md:py-2.5 rounded-full text-base md:text-xl font-semibold hover:bg-secondary cursor-pointer ${
               path.includes('/dashboard') &&
-              'bg-primary-100  hover:bg-primary-100'
+              'md:bg-primary-100  hover:bg-primary-100'
             }`}>
             <Link href="/dashboard">Market</Link>
           </li>
           <li
-            className={`text-center bg-white px-8 py-2.5 rounded-full text-xl font-semibold hover:bg-secondary cursor-pointer ${
+            className={`text-center md:bg-white md:px-8 md:py-2.5 rounded-full text-base md:text-xl font-semibold hover:bg-secondary cursor-pointer ${
               path == '/explore' && 'bg-primary-100  hover:bg-primary-100'
             }`}>
             <Link href="/">Explore</Link>
@@ -83,12 +92,19 @@ function Navbar({}: Props) {
           </>
         ) : (
           <>
-            <Button variant="link" size="lg" className="text-lg">
-              Login
-            </Button>
-            <Button size="lg" className="text-lg">
-              Register
-            </Button>
+            <div className="gap-1 hidden md:flex">
+              <Button variant="link" size="lg" className="text-lg">
+                Login
+              </Button>
+              <Button size="lg" className="text-lg">
+                Register
+              </Button>
+            </div>
+            <div className="gap-1 md:hidden flex">
+              <Button size="icon">
+                <UserPlus />
+              </Button>
+            </div>
           </>
         )}
       </div>

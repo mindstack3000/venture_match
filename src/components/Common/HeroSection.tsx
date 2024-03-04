@@ -1,28 +1,32 @@
-import React from "react";
-import Image from "next/image";
-import { Button } from "../ui/button";
+import React from 'react';
+import Image from 'next/image';
+import { Button } from '../ui/button';
 
 const HeroSection = () => {
   return (
     <>
-      <div className="w-full my-3 bg-slate-200 flex flex-col justify-center items-center relative h-[700px]">
-        <div className="w-full h-full bg-gradient-l-to-r from-primary-200 to-primary-100 absolute top-0 left-0">
-          <Image
-            alt="hero"
-            src={"/images/heroImg.svg"}
-            layout="fill"
-            className="object-cover"
-          />
+      <div className="relative w-full my-3 bg-slate-200 flex flex-col justify-center items-center  h-screen">
+        <Image
+          alt="hero"
+          src={'/images/heroImg.svg'}
+          layout="fill"
+          objectFit="cover"
+          className="w-full h-full absolute top-0 left-0 ob"
+        />
+
+        <div className="w-full h-full flex items-center justify-center z-10 flex-col">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-black font-semibold text-center ">
+            <span className=" text-primary-200 ">Fuel </span>The Change
+            <br />
+            You Want To <span className="text-secondary-100">See</span>
+          </h1>
+          <Button
+            variant="outline"
+            size="lg"
+            className=" bg-primary-200 text-white text-sm  md:text-lg lg:text-2xl font-semibold sm:py-5 sm:px-5 md:py-8 md:px-8  lg:px-10 lg:py-10 my-4 mt-10">
+            GET THE INVESTOR NOW
+          </Button>
         </div>
-        <h1 className="text-9xl text-primary-100 font-semibold text-center absolute top-28">
-          <span className="text-9xl text-primary ">Fuel </span>The Change{" "}
-        </h1>
-        <h1 className="text-9xl text-primary-100 font-semibold text-center absolute">
-          You Want To <span className="text-secondary-100">See</span>
-        </h1>
-        <Button variant="outline" size="lg" className="absolute bg-primary-200 text-white text-3xl font-bold px-10 py-10 my-4 bottom-28">
-          Get Started
-        </Button>
       </div>
     </>
   );
