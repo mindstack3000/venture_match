@@ -70,6 +70,12 @@ export async function register({
       highest_edu,
     }),
   });
+
+  const result = await res.json();
+
+  if (res.status == 201) {
+    return result;
+  }
 }
 
 export async function setEntrepreneurData() {}
